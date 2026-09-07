@@ -23,10 +23,6 @@ class ScaffoldCustom extends StatefulWidget {
   final Color? navigationBarColor;
   final Color? scaffoldBackgroundColor;
 
-  // 🆕 Nuevos parámetros para informar el color real detrás de las barras
-  final Color? topColor;
-  final Color? bottomColor;
-
   final bool? statusBarDarkIcons;
   final bool? navigationBarDarkIcons;
   final bool? showStatusBar;
@@ -50,8 +46,6 @@ class ScaffoldCustom extends StatefulWidget {
     this.statusBarColor,
     this.navigationBarColor,
     this.scaffoldBackgroundColor,
-    this.topColor,
-    this.bottomColor,
     this.statusBarDarkIcons,
     this.navigationBarDarkIcons,
     this.showStatusBar,
@@ -215,7 +209,6 @@ class _ScaffoldCustomState extends State<ScaffoldCustom>
           showStatusBar: _showStatusBar,
           statusBarColor: _statusBarColor,
           scaffoldBackgroundColor: _scaffoldBackgroundColor,
-          //topColor: widget.topColor,
         );
 
         final effectiveNavBarColor = _resolver.resolveNavigationBarColor(
@@ -224,7 +217,6 @@ class _ScaffoldCustomState extends State<ScaffoldCustom>
           shouldPaint: paintNavBar,
           navigationBarColor: _navigationBarColor,
           scaffoldBackgroundColor: _scaffoldBackgroundColor,
-          //bottomColor: widget.bottomColor,
         );
 
         final darkStatusIcons = _resolver.shouldUseDarkIcons(
