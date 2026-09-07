@@ -21,8 +21,6 @@ class BarColorResolver {
     // 🛡️ PRIORIDAD 2: Lógica por defecto si no hay color explícito
     if (isImmersive || !showStatusBar) {
       return scaffoldBackgroundColor;
-    } else if (!isImmersive || showStatusBar) {
-      return scaffoldBackgroundColor;
     }
 
     return statusBarColor;
@@ -44,8 +42,6 @@ class BarColorResolver {
 
     // 🛡️ PRIORIDAD 2: Lógica por defecto
     if (isImmersive || !showNavigationBar || !shouldPaint) {
-      return scaffoldBackgroundColor;
-    } else if (!isImmersive || showNavigationBar || shouldPaint) {
       return scaffoldBackgroundColor;
     }
 
