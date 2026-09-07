@@ -215,7 +215,7 @@ class _ScaffoldCustomState extends State<ScaffoldCustom>
           showStatusBar: _showStatusBar,
           statusBarColor: _statusBarColor,
           scaffoldBackgroundColor: _scaffoldBackgroundColor,
-          topColor: widget.topColor,
+          //topColor: widget.topColor,
         );
 
         final effectiveNavBarColor = _resolver.resolveNavigationBarColor(
@@ -224,7 +224,7 @@ class _ScaffoldCustomState extends State<ScaffoldCustom>
           shouldPaint: paintNavBar,
           navigationBarColor: _navigationBarColor,
           scaffoldBackgroundColor: _scaffoldBackgroundColor,
-          bottomColor: widget.bottomColor,
+          //bottomColor: widget.bottomColor,
         );
 
         final darkStatusIcons = _resolver.shouldUseDarkIcons(
