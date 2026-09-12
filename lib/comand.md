@@ -6,7 +6,7 @@ git commit -m "feat: testing"
 git push origin main
 
 git add .
-git commit -m "chore: bump version to 1.0.5"
-git tag v1.0.5
+git commit -m "chore: bump version to 1.0.6"
+git tag v1.0.6
 git push origin main --tags
 

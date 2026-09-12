@@ -166,7 +166,15 @@ class _ScaffoldCustomState extends State<ScaffoldCustom>
       widget.safeAreaLeft ?? BarsUIController.instance.safeAreaLeft.value;
   bool get _safeAreaRight =>
       widget.safeAreaRight ?? BarsUIController.instance.safeAreaRight.value;
+  bool? get _statusBarDarkIcons =>
+      widget.statusBarDarkIcons ??
+      (BarsUIController.instance.statusBarIconBrightness.value ==
+          Brightness.dark);
 
+  bool? get _navigationBarDarkIcons =>
+      widget.navigationBarDarkIcons ??
+      (BarsUIController.instance.navigationBarIconBrightness.value ==
+          Brightness.dark);
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<bool>(
@@ -220,11 +228,13 @@ class _ScaffoldCustomState extends State<ScaffoldCustom>
         );
 
         final darkStatusIcons = _resolver.shouldUseDarkIcons(
-          userPreference: widget.statusBarDarkIcons,
+          userPreference: _statusBarDarkIcons,
+          //userPreference: widget.statusBarDarkIcons,
           effectiveColor: effectiveStatusBarColor,
         );
         final darkNavIcons = _resolver.shouldUseDarkIcons(
-          userPreference: widget.navigationBarDarkIcons,
+          userPreference: _navigationBarDarkIcons,
+          //userPreference: widget.navigationBarDarkIcons,
           effectiveColor: effectiveNavBarColor,
         );
 

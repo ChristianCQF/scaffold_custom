@@ -22,16 +22,30 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    BarsUIController.instance
+      ..setScaffoldBackgroundColor(Colors.amber)
+      ..setStatusDarkIcons(true)
+      ..setNavigationDarkIcons(true);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return ScaffoldCustom(
-      statusBarColor: Colors.amber,
-      navigationBarColor: Colors.blue.shade100,
-      scaffoldBackgroundColor: Colors.amber,
-      immersiveMode: true,
+      //statusBarColor: Colors.amber,
+      //navigationBarColor: Colors.blue.shade100,
+      //scaffoldBackgroundColor: Colors.amber,
+      //immersiveMode: true,
       respectNotchInImmersive: true,
       body: Column(children: [Text('data')]),
     );
