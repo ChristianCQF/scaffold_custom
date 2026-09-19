@@ -166,7 +166,7 @@ class _ScaffoldCustomState extends State<ScaffoldCustom>
       widget.safeAreaLeft ?? BarsUIController.instance.safeAreaLeft.value;
   bool get _safeAreaRight =>
       widget.safeAreaRight ?? BarsUIController.instance.safeAreaRight.value;
-  bool? get _statusBarDarkIcons =>
+  /*bool? get _statusBarDarkIcons =>
       widget.statusBarDarkIcons ??
       (BarsUIController.instance.statusBarIconBrightness.value ==
           Brightness.dark);
@@ -174,7 +174,37 @@ class _ScaffoldCustomState extends State<ScaffoldCustom>
   bool? get _navigationBarDarkIcons =>
       widget.navigationBarDarkIcons ??
       (BarsUIController.instance.navigationBarIconBrightness.value ==
-          Brightness.dark);
+          Brightness.dark);*/
+
+  bool? get _statusBarDarkIcons {
+    // 1. Prioridad máxima: Lo que diga el widget explícitamente
+    if (widget.statusBarDarkIcons != null) return widget.statusBarDarkIcons;
+
+    // 2. Segunda prioridad: Lo que diga el controlador global (si no es null)
+    final controllerBrightness =
+        BarsUIController.instance.statusBarIconBrightness.value;
+    if (controllerBrightness != null) {
+      return controllerBrightness == Brightness.dark;
+    }
+
+    // 3. Si es null, dejamos que el BarColorResolver lo calcule automáticamente según el color
+    return null;
+  }
+
+  bool? get _navigationBarDarkIcons {
+    if (widget.navigationBarDarkIcons != null) {
+      return widget.navigationBarDarkIcons;
+    }
+
+    final controllerBrightness =
+        BarsUIController.instance.navigationBarIconBrightness.value;
+    if (controllerBrightness != null) {
+      return controllerBrightness == Brightness.dark;
+    }
+
+    return null;
+  }
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<bool>(

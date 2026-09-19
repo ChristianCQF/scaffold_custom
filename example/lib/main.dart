@@ -32,10 +32,11 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
-    BarsUIController.instance
+    /*BarsUIController.instance
       ..setScaffoldBackgroundColor(Colors.amber)
       ..setStatusDarkIcons(true)
-      ..setNavigationDarkIcons(true);
+      ..setNavigationDarkIcons(true);*/
+    BarsUIController.instance.setScaffoldBackgroundColor(Colors.amber);
     super.initState();
   }
 
@@ -44,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return ScaffoldCustom(
       //statusBarColor: Colors.amber,
       //navigationBarColor: Colors.blue.shade100,
-      //scaffoldBackgroundColor: Colors.amber,
+      // scaffoldBackgroundColor: Colors.green.shade100,
       //immersiveMode: true,
       respectNotchInImmersive: true,
       body: Column(children: [Text('data')]),

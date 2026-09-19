@@ -17,13 +17,18 @@ class BarsUIController extends ChangeNotifier {
   );
 
   // --- Brillo de iconos ---
-  final ValueNotifier<Brightness> statusBarIconBrightness = ValueNotifier(
+  /*final ValueNotifier<Brightness> statusBarIconBrightness = ValueNotifier(
     Brightness.dark,
   );
   final ValueNotifier<Brightness> navigationBarIconBrightness = ValueNotifier(
     Brightness.dark,
+  );*/
+  final ValueNotifier<Brightness?> statusBarIconBrightness = ValueNotifier(
+    null,
   );
-
+  final ValueNotifier<Brightness?> navigationBarIconBrightness = ValueNotifier(
+    null,
+  );
   // --- Visibilidad de barras ---
   final ValueNotifier<bool> showStatusBar = ValueNotifier(true);
   final ValueNotifier<bool> showNavigationBar = ValueNotifier(true);
@@ -42,11 +47,18 @@ class BarsUIController extends ChangeNotifier {
     statusBarColor: statusBarColor.value,
     systemNavigationBarColor: navigationBarColor.value,
     systemNavigationBarDividerColor: Colors.transparent,
-    statusBarIconBrightness: statusBarIconBrightness.value,
-    systemNavigationBarIconBrightness: navigationBarIconBrightness.value,
-    statusBarBrightness: statusBarIconBrightness.value == Brightness.dark
+    statusBarIconBrightness: statusBarIconBrightness.value ?? Brightness.dark,
+    systemNavigationBarIconBrightness:
+        navigationBarIconBrightness.value ?? Brightness.dark,
+    statusBarBrightness:
+        (statusBarIconBrightness.value ?? Brightness.dark) == Brightness.dark
         ? Brightness.light
         : Brightness.dark,
+    // statusBarIconBrightness: statusBarIconBrightness.value,
+    //systemNavigationBarIconBrightness: navigationBarIconBrightness.value,
+    /*statusBarBrightness: statusBarIconBrightness.value == Brightness.dark
+        ? Brightness.light
+        : Brightness.dark,*/
     systemStatusBarContrastEnforced: false,
     systemNavigationBarContrastEnforced: false,
   );
